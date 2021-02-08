@@ -2,50 +2,44 @@ package day38_JavaRecap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class ArrayList_Methods {
     // remove, size, set, get, equals, contains, clear
     public static void main(String[] args) {
 
-        ArrayList<String> cars = new ArrayList<>();
-        cars.addAll(Arrays.asList("BMW", "Mercedes", "Infinity", "Tesla", "WV", "Lamborghini", "Lexus", "Tesla", "Tesla", "Mazda") );
-        //                          0        1           2          3       4         5           6        7       8
+        ArrayList<String>cars = new ArrayList<>();
+        cars.addAll(Arrays.asList("Mazda","BMW","Mercedes","Audi","Infinity","Volvo","WV","WV","WV","Lamborghini","Lexus"));
 
-       // cars.remove(3);
-       // cars.remove("Tesla");
-      //  cars.removeAll( Arrays.asList("Tesla") );
-      //  cars.removeIf( p -> p.toLowerCase().contains("m") );
-      //  cars.retainAll( Arrays.asList("Tesla")  );
+
+        cars.remove(3);//removing by using index number
+        cars.remove("WV"); // removing by using the name
+        cars.removeAll(Arrays.asList("WV"));//removing multiple element
+        cars.removeIf(p->p.toLowerCase().contains("m"));//removing the cars that has m in its  name
+        cars.retainAll(Arrays.asList("Volvo"));
 
         System.out.println(cars);
 
-        System.out.println("==========================================================");
+        System.out.println("======================================");
 
-        ArrayList<String> groceryList = new ArrayList<>();
-        groceryList.addAll( Arrays.asList("Eggs", "Milk", "Paper Towels", "Toilet Paper", "Mango", "Orange", "Avocado", "Dragon Fruit")  );
+        ArrayList<String> groceryList =new ArrayList<>();
+        groceryList.addAll(Arrays.asList("Milk","egg","water","apple","banana","coffee"));
 
-        // pepsi
-        boolean r1 = groceryList.contains("Pepsi");
-        System.out.println(groceryList);
+        boolean r1= groceryList.contains("water");
         System.out.println(r1);
 
-        // Eggs, Milk, Orange, Water
-       boolean r2 = groceryList.containsAll( Arrays.asList("Eggs", "Orange", "Milk", "Water") );
+        boolean r2= groceryList.containsAll(Arrays.asList("chocolate","bread","fish"));
         System.out.println(r2);
 
-        System.out.println("Total Number of Items: "+ groceryList.size());
+        System.out.println("total numbers of items: "+groceryList.size());
 
-        // set the dragon fruit to apple:
-        groceryList.set(groceryList.size()-1 ,  "Apple" );
-        groceryList.set( groceryList.indexOf("Paper Towels") ,  "Dish Washer");
-
+        //set the coffee to apple cider
+        groceryList.set(groceryList.size()-1,"apple cider");
+        groceryList.set(groceryList.indexOf("apple"),"strawberry");
         System.out.println(groceryList);
 
         groceryList.clear();
         System.out.println(groceryList);
-
-
-
 
     }
 }

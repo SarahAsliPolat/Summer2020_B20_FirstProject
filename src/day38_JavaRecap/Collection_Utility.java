@@ -1,5 +1,6 @@
 package day38_JavaRecap;
 
+import java.util.AbstractQueue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,75 +18,62 @@ public class Collection_Utility {
      */
 
     public static void main(String[] args) {
-
-        ArrayList<Character>  chars = new ArrayList<>();
-        chars.addAll(Arrays.asList('R', 'S', 'O', 'P', 'D', 'A', 'C', 'B') );
-
-        System.out.println(chars);
-
+        //SWAP
+        ArrayList<Character> chars =new ArrayList<>();
+        chars.addAll(Arrays.asList('R','S','K','A','D','C','M','B'));
         Collections.sort(chars);
-
         System.out.println(chars);
 
-
-        ArrayList<String> students = new ArrayList<>();
-        students.addAll( Arrays.asList("Aslan", "Cristina", "Zeliha", "Iman", "Fatima", "Mohammad") );
-        //                               0         1            2        3         4        5
-
-        Collections.swap(students, 1, 4 );
-        Collections.swap(students, 1, 4);
-
-        Collections.swap(students, 0, students.size()-1);
-
+        ArrayList<String> students =new ArrayList<>();
+        students.addAll(Arrays.asList("Betul","Rana","Zeynep","Ela","Asli","Baris"));
+        Collections.swap(students,1,3);
+        System.out.println(students);
+        Collections.swap(students,4,students.size()-1);
         System.out.println(students);
 
-
-        ArrayList<String> items = new ArrayList<>();
-        items.addAll( Arrays.asList("Coffee", "Coffee", "Egg", "Battery", "Battery", "Battery", "Battery"));
-
-        int count = Collections.frequency(items, "Battery");
-
+        //FREQUENCY
+        ArrayList<String> items= new ArrayList<>();
+        items.addAll(Arrays.asList("Coffee","egg","donut","water","salt","avacado","water","egg","egg","salt","salt"));
+        int count= Collections.frequency(items,"water");
+        int count2 =Collections.frequency(items,"egg");
+        int count3 = Collections.frequency(items,"donut");
+        int count4 = Collections.frequency(items,"salt");
         System.out.println(count);
+        System.out.println(count2);
+        System.out.println(count3);
+        System.out.println(count4);
 
 
-        ArrayList<String> unique = new ArrayList<>();
+        ArrayList<String> unique= new ArrayList<>();
 
-        for(String each : items ){
-            int  i = Collections.frequency(items, each);
-            if(i == 1){
+        for(String each :items){
+            int i = Collections.frequency(items,each);
+            if(i==1){
                 unique.add(each);
             }
         }
-
         System.out.println(unique);
-
-
-        ArrayList<String> unique2 = new ArrayList<>();
+        ArrayList<String> unique2 =new ArrayList<>();
         unique2.addAll(items);
-        unique2.removeIf( p -> Collections.frequency(unique2, p) > 1 );
+        unique2.removeIf(p->Collections.frequency(unique2,p)>1);
         System.out.println(unique2);
 
 
-        ArrayList<Integer> list = new ArrayList<>();
-        list.addAll(Arrays.asList(10,9, 89, 1000, 2000, 3000, 30, 40, -50, 1000, 1000, 1000, 1000));
+        //MAX _ MIN
 
-        Integer max = Collections.max(list);
-        Integer min = Collections.min(list);
+        ArrayList<Integer> num1 = new ArrayList<>();
+        num1.addAll(Arrays.asList(1,1,4,1,6,9,80,6,55,-1));
+        Integer max = Collections.max(num1);
+        Integer min = Collections.min(num1);
 
-        System.out.println("max: "+max);
-        System.out.println("min: "+min);
+        System.out.println("maximum number is :"+max);
+        System.out.println("minimum number is :"+min);
 
-        Collections.replaceAll(list, 1000, 100000 );
+      //REPLACEALL
 
-        System.out.println(list);
-
-
+        Collections.replaceAll(num1,1,2);
+        System.out.println(num1);
 
 
     }
-
-
-
-
-
 }
